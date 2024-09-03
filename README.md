@@ -1,3 +1,3 @@
 # Estudo de node com JS Vannila
 
-Objtivo de aprender a base do node no back-end
+intuito de aprender a base do node no back-end no desenvolvimento de API 
