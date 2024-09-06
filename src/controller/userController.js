@@ -2,7 +2,8 @@ import * as userService from "../service/userService.js";
 
 export const getUsersByEmail = async (req, res) => {
   try {
-    const { email } = req.query;
+    const { email } = req.params;
+    console.log(email);
     const users = await userService.getUsersByEmail(email);
     res.status(200).json(users);
   } catch (error) {

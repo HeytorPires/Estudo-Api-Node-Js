@@ -8,6 +8,12 @@ export const getUsersByEmail = async (email) => {
   });
 };
 
+export const getUsersById = async (id) => {
+  return prisma.users.findUnique({
+    where: { email: String(id) },
+  });
+};
+
 export const getAllUsers = async () => {
   return prisma.users.findMany();
 };
