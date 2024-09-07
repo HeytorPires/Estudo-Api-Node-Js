@@ -1,0 +1,169 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API de exemplo para gerenciamento de usuários",
+    "version": "1.0.0",
+    "title": "Exemplo de API"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "schemes": ["http"],
+  "paths": {
+    "/usuarios": {
+      "get": {
+        "summary": "Obtém a lista de usuários",
+        "description": "Retorna uma lista de todos os usuários",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários retornada com sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria um novo usuário",
+        "description": "Adiciona um novo usuário ao sistema",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto do usuário que precisa ser adicionado",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Usuário criado com sucesso"
+          }
+        }
+      }
+    },
+    "Usuario/{emailUser}": {
+      "get": {
+        "summary": "Obtém um usuário por email",
+        "description": "Retorna os detalhes de um usuário específico",
+        "parameters": [
+          {
+            "name": "emailUser",
+            "in": "path",
+            "req": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário retornado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      }
+    },
+    "/Usuario/{userId}": {
+      "get": {
+        "summary": "Obtém um usuário por ID",
+        "description": "Retorna os detalhes de um usuário específico",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário retornado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um usuário",
+        "description": "Atualiza os dados de um usuário específico",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto do usuário com os novos dados",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado com sucesso"
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um usuário",
+        "description": "Remove um usuário específico do sistema",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Usuário deletado com sucesso"
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Usuarios": {
+      "type": "object",
+      "required": ["name", "age", "email"],
+      "properties": {
+        "age": {
+          "type": "string",
+          "example": "12"
+        },
+        "name": {
+          "type": "string",
+          "example": "João da Silva"
+        },
+        "email": {
+          "type": "string",
+          "example": "joao@example.com"
+        }
+      }
+    }
+  }
+}
