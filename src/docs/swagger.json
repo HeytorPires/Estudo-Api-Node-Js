@@ -6,7 +6,6 @@
     "title": "Exemplo de API"
   },
   "host": "localhost:3000",
-  "basePath": "/api/v1",
   "schemes": ["http"],
   "paths": {
     "/usuarios": {
@@ -46,7 +45,7 @@
         }
       }
     },
-    "Usuario/{emailUser}": {
+    "/usuarios/findByEmail/{emailUser}": {
       "get": {
         "summary": "Obtém um usuário por email",
         "description": "Retorna os detalhes de um usuário específico",
@@ -71,7 +70,7 @@
         }
       }
     },
-    "/Usuario/{userId}": {
+    "/usuarios/findById/{userId}": {
       "get": {
         "summary": "Obtém um usuário por ID",
         "description": "Retorna os detalhes de um usuário específico",
