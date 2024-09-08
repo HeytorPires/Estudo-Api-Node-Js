@@ -73,7 +73,7 @@
     "/usuarios/findById/{userId}": {
       "get": {
         "summary": "Obtém um usuário por ID",
-        "description": "Retorna os detalhes de um usuário específico",
+        "description": "Retorna os detalhes de um usuário específico.",
         "parameters": [
           {
             "name": "userId",
