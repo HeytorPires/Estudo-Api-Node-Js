@@ -3,8 +3,18 @@ import * as userService from "../service/userService.js";
 export const getUsersByEmail = async (req, res) => {
   try {
     const { email } = req.params;
-    console.log(email);
     const users = await userService.getUsersByEmail(email);
+    res.status(200).json(users);
+  } catch (error) {
+    console.error("Erro ao listar usuários:", error);
+    res.status(500).json({ error: "Erro ao listar usuários" });
+  }
+};
+
+export const getUsersById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const users = await userService.getUsersById(id);
     res.status(200).json(users);
   } catch (error) {
     console.error("Erro ao listar usuários:", error);

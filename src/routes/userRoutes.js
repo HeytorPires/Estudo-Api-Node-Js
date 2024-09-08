@@ -5,6 +5,7 @@ const router = express.Router(); // instanciando o router do express em uma vari
 //Rotas e seus metodos de requisição
 router.get("/", userController.getAllUsers);
 router.get("/findByEmail/:email", userController.getUsersByEmail);
+router.get("/findById/:id", userController.getUsersById);
 router.post("/", userController.createUser);
 router.put("/:id", userController.updateUser);
 router.delete("/:id", userController.deleteUser);

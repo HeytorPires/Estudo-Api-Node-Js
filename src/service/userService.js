@@ -10,7 +10,7 @@ export const getUsersByEmail = async (email) => {
 
 export const getUsersById = async (id) => {
   return prisma.users.findUnique({
-    where: { email: String(id) },
+    where: { id: String(id) },
   });
 };
 
